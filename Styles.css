@@ -1,1 +1,8 @@
-.
+body {
+    background-color: gainsboro;
+}
+
+h1.titulo {
+    color: darkorange;
+    margin-left: 100px;
+}
