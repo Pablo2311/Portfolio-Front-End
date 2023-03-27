@@ -70,6 +70,38 @@ section {
   justify-content: space-between;
 }
 
+.logo {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
+.logo i {
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in;
+}
+
+.logo:hover {
+  background-color: white;
+  border:  2px solid rgb(0, 0, 0);
+}
+
+.logo:hover i {
+  color: black;
+}
+
+.login {
+  margin: 10px;
+}
+
 /* Seccion Hero */
 
 .hero {
