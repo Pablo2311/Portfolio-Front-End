@@ -152,6 +152,17 @@ section {
   margin: 10px;
 }
 
+/* Login */
+
+.login-form {
+  width: 25%;
+}
+
+.login-form-container {
+  height: 400px;
+  padding: 20px;
+}
+
 /* Seccion Hero */
 
 .hero {
