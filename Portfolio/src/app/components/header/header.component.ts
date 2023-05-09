@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -8,19 +9,25 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  
+  email = '';
+  password = '';
+  form = (this.email, this.password);
 
   constructor (
     private loginservice:LoginService,
     private router:Router
     ) {}
 
-  
+  onSubmit(){
+    this.loginservice.login(this.form)
+  }
   
   onClick() {
     this.loginservice.logout()
-      .then(() => {
-        this.router.navigate(['/sobre-mi'])
-      })
-      .catch(error => console.log(error));
+  //    .then(() => {
+  //      this.router.navigate(['/sobre-mi'])
+  //    })
+  //    .catch(error => console.log(error));
   }
 }

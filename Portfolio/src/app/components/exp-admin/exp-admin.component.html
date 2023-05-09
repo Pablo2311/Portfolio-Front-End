@@ -1,0 +1,40 @@
+<!-- Experiencia -->
+<section id="experiencia" class="experiencia seccion-clara">
+  <a class="edit-button" href="/experiencia"><i class="bi bi-pencil"></i></a>
+  <div class="container text-center">
+    <form action="">
+      <input type="text" id="exp" name="empleador" [(ngModel)]="expNueva.empleador" placeholder="Empleador" class="m-3">
+      <input type="text" id="desde" name="desde" [(ngModel)]="expNueva.desde" placeholder="Fecha de comienzo" class="m-3">
+      <input type="text" id="hasta" name="hasta" [(ngModel)]="expNueva.hasta" placeholder="Fecha del fin" class="m-3">
+      <input type="text" id="puesto" name="puesto" [(ngModel)]="expNueva.puesto" placeholder="Puesto desempeñado" class="m-3">
+      <input type="text" id="descripcion" name="descripcion" [(ngModel)]="expNueva.descripcion" placeholder="Descripción" class="m-3">
+      <button type="submit" class="btn btn-success " (click)="addExperiencias()">Añadir</button>
+    </form>
+    <h2 class="seccion-titulo ">Experiencia</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Empleador</th>
+          <th scope="col">Comienzo</th>
+          <th scope="col">Hasta</th>
+          <th scope="col">Puesto</th>
+          <th scope="col">Descripción</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exp of lista">
+          <td>{{exp.empleador}}</td>
+          <td>{{exp.desde}}</td>
+          <td>{{exp.hasta}}</td>
+          <td>{{exp.puesto}}</td>
+          <td>{{exp.descripcion}}</td>
+          <td>
+            <button type="button" class="btn btn-warning" [routerLink]="['/editar-exp-admin/',exp.id]">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteExperiencias(exp.id)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

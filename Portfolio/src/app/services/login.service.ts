@@ -1,19 +1,37 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+//import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private auth: Auth) { }
+  uri = 'https://portfolio-angular-8c6ad.web.app/';
+  token: any;
+
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   login({email, password}: any) {
-    console.log("invoca");
-    return signInWithEmailAndPassword(this.auth, email, password);
+    this.http.post(this.uri + '/authenticate', {email: email,password: password})
+        .subscribe((resp: any) => {
+          this.router.navigate(['sobre-mi']);
+          localStorage.setItem('auth_token', resp.token);
+        });
+    //return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   logout() {
-    return signOut(this.auth);
+    localStorage.removeItem('token');
+    //return signOut(this.auth);
   }
+
+  public get logIn(): boolean {
+    return (localStorage.getItem('token') !== null);
+  }
+  
 }

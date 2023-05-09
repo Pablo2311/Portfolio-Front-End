@@ -1,12 +1,12 @@
 <!-- Experiencia -->
 <section id="experiencia" class="experiencia seccion-clara">
-  <!--<a class="edit-button"><i class="bi bi-pencil"></i></a>-->
-  <div class="contenedor container-fluid">
+  <a class="edit-button" href="/experiencia-admin"><i class="bi bi-pencil"></i></a>
+  <div class="contenainer text-center">
     <h2 class="seccion-titulo ">Experiencia</h2>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Lugar</th>
+          <th scope="col">Empleador</th>
           <th scope="col">Desde</th>
           <th scope="col">Hasta</th>
           <th scope="col">Puesto</th>
@@ -14,12 +14,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Air Computers</th>
-          <td>1/8/2018</td>
-          <td>30/11/2018</td>
-          <td>Servicio técnico</td>
-          <td>Estuve como pasante en servicio técnico</td>
+        <tr *ngFor="let exp of lista">
+          <td>{{exp.empleador}}</td>
+          <td>{{exp.desde}}</td>
+          <td>{{exp.hasta}}</td>
+          <td>{{exp.puesto}}</td>
+          <td>{{exp.descripcion}}</td>
         </tr>
       </tbody>
     </table>

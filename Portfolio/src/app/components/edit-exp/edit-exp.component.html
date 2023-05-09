@@ -1,0 +1,10 @@
+<div>
+  <form action="">
+    <input type="text" id="exp" name="empleador" [(ngModel)]="expActual.empleador" placeholder="Empleador" class="m-3">
+    <input type="text" id="desde" name="desde" [(ngModel)]="expActual.desde" placeholder="Fecha de comienzo" class="m-3">
+    <input type="text" id="hasta" name="hasta" [(ngModel)]="expActual.hasta" placeholder="Fecha del fin" class="m-3">
+    <input type="text" id="puesto" name="puesto" [(ngModel)]="expActual.puesto" placeholder="Puesto desempeñado" class="m-3">
+    <input type="text" id="descripcion" name="descripcion" [(ngModel)]="expActual.descripcion" placeholder="Descripción" class="m-3">
+    <button type="submit" class="btn btn-success " (click)="editExperiencias()">Editar</button>
+  </form>
+</div>

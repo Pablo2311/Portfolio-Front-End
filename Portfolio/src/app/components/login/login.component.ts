@@ -10,6 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent {
   formLogin:FormGroup;
+
   constructor (
     private loginservice: LoginService,
     private router:Router
@@ -20,13 +21,13 @@ export class LoginComponent {
     })
   }
 
-  onSubmit() {
-    this.loginservice.login(this.formLogin.value)
-      .then(() => {
-        this.router.navigate(['/sobre-mi'])
-      })
-      .catch(error => console.log(error));
-  }
+//  onSubmit() {
+//    this.loginservice.login(this.formLogin.value)
+//      .then(() => {
+//        this.router.navigate(['/sobre-mi'])
+//      })
+//      .catch(error => console.log(error));
+//  }
 
 }
 
