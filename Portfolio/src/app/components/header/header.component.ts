@@ -18,10 +18,6 @@ export class HeaderComponent {
     private loginservice:LoginService,
     private router:Router
     ) {}
-
-  onSubmit(){
-    this.loginservice.login(this.form)
-  }
   
   onClick() {
     this.loginservice.logout()

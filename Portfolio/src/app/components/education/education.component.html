@@ -1,7 +1,7 @@
 <!-- Educacion -->
 <section id="educacion" class="educacion seccion-clara">
-  <!--<a class="edit-button"><i class="bi bi-pencil"></i></a>-->
-  <div class="contenedor container-fluid">
+  <a class="edit-button" href="/educacion-admin"><i class="bi bi-pencil"></i></a>
+  <div class="contenainer text-center">
     <h2 class="seccion-titulo ">Educación</h2>
     <table class="table">
       <thead>
@@ -13,11 +13,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Inst. Ntra. Sra. de la Paz</th>
-          <td>2007</td>
-          <td>2019</td>
-          <td>Bachiller con orientación en Informática</td>
+        <tr *ngFor="let edu of lista">
+          <td>{{edu.institucion}}</td>
+          <td>{{edu.desde}}</td>
+          <td>{{edu.hasta}}</td>
+          <td>{{edu.descripcion}}</td>
         </tr>
       </tbody>
     </table>

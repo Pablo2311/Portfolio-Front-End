@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -10,25 +10,34 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent {
   formLogin:FormGroup;
-
   constructor (
+    private formbuilder: FormBuilder,
     private loginservice: LoginService,
     private router:Router
-    ) {
-    this.formLogin = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    })
+  )
+  {
+    this.formLogin = this.formbuilder.group(
+      {
+        email:['',[Validators.required,Validators.email]],
+        password: ['',[Validators.required,Validators.minLength(5)]]
+      })    
   }
 
-//  onSubmit() {
-//    this.loginservice.login(this.formLogin.value)
-//      .then(() => {
-//        this.router.navigate(['/sobre-mi'])
-//      })
-//      .catch(error => console.log(error));
-//  }
+  get Email() {
+    return this.formLogin.get('email');
+  }
 
+  get Password() {
+    return this.formLogin.get('password');
+  }
+
+  onSubmit() {
+    this.loginservice.login(this.formLogin.value);
+    console.log(this.formLogin.value);
+    sessionStorage.setItem("token","true");
+    this.router.navigate(['/sobre-mi']);
+    (error: any) => {console.log(error)};
+  }
 }
 
 

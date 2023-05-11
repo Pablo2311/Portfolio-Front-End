@@ -1,0 +1,9 @@
+<div>
+  <form action="">
+    <input type="text" id="institucion" name="institucion" [(ngModel)]="eduActual.institucion" placeholder="Institución" class="m-3">
+    <input type="text" id="desde" name="desde" [(ngModel)]="eduActual.desde" placeholder="Fecha de comienzo" class="m-3">
+    <input type="text" id="hasta" name="hasta" [(ngModel)]="eduActual.hasta" placeholder="Fecha del fin" class="m-3">
+    <input type="text" id="descripcion" name="descripcion" [(ngModel)]="eduActual.descripcion" placeholder="Descripción" class="m-3">
+    <button type="submit" class="btn btn-success " (click)="editEducaciones()">Editar</button>
+  </form>
+</div>

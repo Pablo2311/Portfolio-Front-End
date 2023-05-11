@@ -1,0 +1,37 @@
+<!-- Editar Edu -->
+<section id="educacion" class="educacion seccion-clara">
+  <a class="edit-button" href="/educacion"><i class="bi bi-pencil"></i></a>
+  <div class="contenainer text-center">
+    <form action="">
+      <input type="text" id="institucion" name="institucion" [(ngModel)]="eduNueva.institucion" placeholder="Institución" class="m-3">
+      <input type="text" id="desde" name="desde" [(ngModel)]="eduNueva.desde" placeholder="Fecha de comienzo" class="m-3">
+      <input type="text" id="hasta" name="hasta" [(ngModel)]="eduNueva.hasta" placeholder="Fecha del fin" class="m-3">
+      <input type="text" id="descripcion" name="descripcion" [(ngModel)]="eduNueva.descripcion" placeholder="Descripción" class="m-3">
+      <button type="submit" class="btn btn-success " (click)="addEducaciones()">Añadir</button>
+    </form>
+    <h2 class="seccion-titulo ">Educación</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Institución</th>
+          <th scope="col">Desde</th>
+          <th scope="col">Hasta</th>
+          <th scope="col">Orientación</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let edu of lista">
+          <td>{{edu.institucion}}</td>
+          <td>{{edu.desde}}</td>
+          <td>{{edu.hasta}}</td>
+          <td>{{edu.descripcion}}</td>
+          <td>
+            <button type="button" class="btn btn-warning" [routerLink]="['/editar-edu-admin/',edu.id]">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteEducaciones(edu.id)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

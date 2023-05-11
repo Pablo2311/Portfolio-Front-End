@@ -38,10 +38,10 @@
     <a class="logo" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-instagram"></i>
     </a>
-    <button type="button" routerLink="/login" class="btn btn-dark login" (click)="onSubmit()">
+    <button type="button" routerLink="/login" class="btn btn-dark login">
       Login
     </button>
-    <button type="button" routerLink="/sobre-mi" class="btn btn-danger login" (click)="onClick()">
+    <button type="button" routerLink="/sobre-mi" class="btn btn-danger login" (click)="onClick()" *ngIf="LoginService.token = true">
       Logout
     </button>
   </div>

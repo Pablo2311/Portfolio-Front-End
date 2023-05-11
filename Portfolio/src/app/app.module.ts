@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ExpAdminComponent } from './components/exp-admin/exp-admin.component';
 import { EditExpComponent } from './components/edit-exp/edit-exp.component';
+import { EduAdminComponent } from './components/edu-admin/edu-admin.component';
+import { EditEduComponent } from './components/edit-edu/edit-edu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { EditExpComponent } from './components/edit-exp/edit-exp.component';
     ContactComponent,
     LoginComponent,
     ExpAdminComponent,
-    EditExpComponent
+    EditExpComponent,
+    EduAdminComponent,
+    EditEduComponent
   ],
   imports: [
     BrowserModule,

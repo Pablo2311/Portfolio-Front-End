@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs';
 import { Router } from '@angular/router';
 //import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 
@@ -8,21 +10,19 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
 
-  uri = 'https://portfolio-angular-8c6ad.web.app/';
-  token: any;
+  url = 'http://localhost:8080';
+  token: boolean = false;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) { }
+  constructor(private http: HttpClient,
+              private router: Router) {}
 
   login({email, password}: any) {
-    this.http.post(this.uri + '/authenticate', {email: email,password: password})
+    this.http.put(this.url + '/login/autenticar/1', {email: email,password: password})
         .subscribe((resp: any) => {
-          this.router.navigate(['sobre-mi']);
-          localStorage.setItem('auth_token', resp.token);
+          //this.router.navigate(['sobre-mi']);
+          localStorage.setItem('token', resp.token);
         });
-    //return signInWithEmailAndPassword(this.auth, email, password);
+  //  return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   logout() {
@@ -31,7 +31,7 @@ export class LoginService {
   }
 
   public get logIn(): boolean {
-    return (localStorage.getItem('token') !== null);
+    return this.token;
   }
   
 }
