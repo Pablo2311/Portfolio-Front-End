@@ -9,9 +9,11 @@ import { ExperienceService } from 'src/app/services/experience.service';
 export class ExperienceComponent implements OnInit {
 
   lista:any=[];
+  estaLogueado:any = '';
   constructor (private ExpService: ExperienceService) {}
 
   ngOnInit(): void {
+    this.estaLogueado = sessionStorage.getItem('token');
     this.experiencias();
   }
 

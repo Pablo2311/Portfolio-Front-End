@@ -10,17 +10,19 @@ import { ExpAdminComponent } from './components/exp-admin/exp-admin.component';
 import { EditExpComponent } from './components/edit-exp/edit-exp.component';
 import { EduAdminComponent } from './components/edu-admin/edu-admin.component';
 import { EditEduComponent } from './components/edit-edu/edit-edu.component';
+import { VigilanteGuard } from './guards/vigilante.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'sobre-mi', pathMatch: 'full'},
   {path: 'sobre-mi', component: AboutComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   {path: 'experiencia', component: ExperienceComponent},
-  {path: 'experiencia-admin', component: ExpAdminComponent},
-  {path: 'editar-exp-admin/:id', component: EditExpComponent},
+  {path: 'experiencia-admin', component: ExpAdminComponent, canActivate: [VigilanteGuard]},
+  {path: 'editar-exp-admin/:id', component: EditExpComponent, canActivate: [VigilanteGuard]},
   {path: 'educacion', component: EducationComponent},
-  {path: 'educacion-admin', component: EduAdminComponent},
-  {path: 'editar-edu-admin/:id', component: EditEduComponent},
+  {path: 'educacion-admin', component: EduAdminComponent, canActivate: [VigilanteGuard]},
+  {path: 'editar-edu-admin/:id', component: EditEduComponent, canActivate: [VigilanteGuard]},
   {path: 'habilidades', component: SkillsComponent},
   {path: 'proyectos', component: ProjectsComponent},
 ]

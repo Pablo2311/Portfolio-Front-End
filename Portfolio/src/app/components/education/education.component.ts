@@ -9,9 +9,11 @@ import { EducationService } from 'src/app/services/education.service';
 export class EducationComponent implements OnInit {
 
   lista:any=[];
+  estaLogueado:any = '';
   constructor (private EduService: EducationService) {}
 
   ngOnInit(): void {
+    this.estaLogueado = sessionStorage.getItem('token');
     this.educaciones();
   }
 

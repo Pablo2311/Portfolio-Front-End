@@ -25,25 +25,24 @@
           <a class="nav-link active" href="/proyectos">Proyectos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#contacto">Contactos</a>
+          <a class="nav-link active" href="/sobre-mi#contacto">Contactos</a>
         </li>
       </ul>
     </div>
-    <a class="logo" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+    <a class="logo" href="https://github.com/Pablo2311" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-github"></i>
     </a>
-    <a class="logo" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+    <a class="logo" href="https://www.linkedin.com/in/pablo-ra%C3%BAl-guti%C3%A9rrez/" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-linkedin"></i>
     </a>
-    <a class="logo" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+    <a class="logo" href="https://www.instagram.com/pablo_carp/" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-instagram"></i>
     </a>
-    <button type="button" routerLink="/login" class="btn btn-dark login">
+    <button type="button" routerLink="/login" class="btn btn-dark login" *ngIf="!estaLogueado">
       Login
     </button>
-    <button type="button" routerLink="/sobre-mi" class="btn btn-danger login" (click)="onClick()" *ngIf="LoginService.token = true">
+    <button type="button" routerLink="/sobre-mi" class="btn btn-danger login" (click)="onClick()" *ngIf="estaLogueado">
       Logout
     </button>
   </div>
 </nav>
-<!--*ngIf="!loginService.logIn"-->

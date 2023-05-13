@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -8,8 +8,9 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   
+  estaLogueado:any = '';
   email = '';
   password = '';
   form = (this.email, this.password);
@@ -19,11 +20,13 @@ export class HeaderComponent {
     private router:Router
     ) {}
   
+  ngOnInit(): void {
+    this.estaLogueado = sessionStorage.getItem('token');
+  }
+
   onClick() {
-    this.loginservice.logout()
-  //    .then(() => {
-  //      this.router.navigate(['/sobre-mi'])
-  //    })
-  //    .catch(error => console.log(error));
+    this.loginservice.logout();
+    this.router.navigate(['/sobre-mi']);
+    this.estaLogueado = sessionStorage.getItem('token');
   }
 }

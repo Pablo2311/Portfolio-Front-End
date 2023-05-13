@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -8,8 +8,11 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  
   formLogin:FormGroup;
+
+  estaLogueado:any = '';
   constructor (
     private formbuilder: FormBuilder,
     private loginservice: LoginService,
@@ -23,6 +26,10 @@ export class LoginComponent {
       })    
   }
 
+  ngOnInit(): void {
+    this.estaLogueado = sessionStorage.getItem('token');
+  }
+
   get Email() {
     return this.formLogin.get('email');
   }
@@ -32,11 +39,8 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    console.log("login funciona");
     this.loginservice.login(this.formLogin.value);
-    console.log(this.formLogin.value);
-    sessionStorage.setItem("token","true");
-    this.router.navigate(['/sobre-mi']);
-    (error: any) => {console.log(error)};
   }
 }
 

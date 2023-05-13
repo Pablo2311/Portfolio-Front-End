@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AboutService } from 'src/app/services/about.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,15 +7,19 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent {
-  titulo = '';
-  parrafo = '';
-  constructor (private http:HttpClient) {}
+export class AboutComponent implements OnInit{
+  
+  lista:any=[];
+  constructor (private AboutService: AboutService) {}
 
   ngOnInit () {
-    this.http.get("https://localhost:8080/sobre-mi").subscribe((resp:any) => {
-      this.titulo = resp;
-      //this.parrafo = resp;
-    })
+    this.About();
+  }
+
+  About() {
+    this.AboutService.getAbout().subscribe(
+      resp=>{this.lista=resp;},
+      error=>{console.log(error);}
+    );
   }
 }
