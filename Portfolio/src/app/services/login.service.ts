@@ -15,7 +15,10 @@ export class LoginService {
   login({email, password}: any) {
     this.http.put(this.url + '/login/autenticar/1', {email: email,password: password})
         .subscribe((resp: any) => {
-          sessionStorage.setItem('token', resp)
+          console.log(resp);
+          if (resp) {
+            sessionStorage.setItem('token', resp);
+          }
           //this.router.navigate(['sobre-mi']);
           location.reload();
         });
@@ -24,6 +27,7 @@ export class LoginService {
   logout() {
     console.log("logout funciona");
     sessionStorage.removeItem('token');
+    location.reload();
   }
   
 }

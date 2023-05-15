@@ -12,15 +12,9 @@
 </section>
 <!-- Sobre mi -->
 <section id="sobre-mi" class="sobre-mi seccion-oscura">
-  <!--<a class="edit-button"><i class="bi bi-pencil"></i></a>-->
+  <a class="edit-button" [routerLink]="['/editar-sobre-mi/', about.id]" *ngIf="estaLogueado"><i class="bi bi-pencil"></i></a>
   <div class="container">    
-    <h2 class="seccion-titulo text-center">Conoce a Pablo Gutiérrez <!--{{lista.titulo}}--> </h2>
-    <p class="seccion-texto ">Este Portfolio web está orientado para que conozcas sobre su desarrollador, sus trabajos, proyectos, experiencias, formación, habilidades y aspiraciones.<br>
-    Con vistas al presente, me encuentro buscando ampliar y mejorar mis habilidades de desarrollador, y por qué no, también aprender otras habilidades informáticas. Además me encuentro muy interesado en seguir desarrollando proyectos cada vez más complejos.<br>
-    El recorrido de formación que fui recorriendo hasta ahora, se potenció enormemente gracias al curso, ArgentinaPrograma, que me brindó la motivación y herramientas para llegar hasta aquí, con el resultado de este Portfolio.<br>
-    En cuanto a mis aspiraciones y el futuro, me gustaría poder insertarme en el mercado IT para enriquecer mis capacidades con la ayuda y consejo de programadores y desarrolladores experimentados.<br>
-    Te invito a recorrer el Portfolio para descubrir el resto.<!--{{lista.parrafo}}-->
-    </p>
+    <h2 class="seccion-titulo text-center">{{about.titulo}} </h2>
+    <p class="seccion-texto ">{{about.parrafo}}</p>
   </div>
 </section>
-<!--{{titulo}}-->

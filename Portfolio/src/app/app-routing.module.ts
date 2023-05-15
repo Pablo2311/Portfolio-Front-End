@@ -12,10 +12,12 @@ import { EduAdminComponent } from './components/edu-admin/edu-admin.component';
 import { EditEduComponent } from './components/edit-edu/edit-edu.component';
 import { VigilanteGuard } from './guards/vigilante.guard';
 import { LoginGuard } from './guards/login.guard';
+import { EditAboutComponent } from './components/edit-about/edit-about.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'sobre-mi', pathMatch: 'full'},
   {path: 'sobre-mi', component: AboutComponent},
+  {path: 'editar-sobre-mi/:id', component: EditAboutComponent, canActivate: [VigilanteGuard]},
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   {path: 'experiencia', component: ExperienceComponent},
   {path: 'experiencia-admin', component: ExpAdminComponent, canActivate: [VigilanteGuard]},

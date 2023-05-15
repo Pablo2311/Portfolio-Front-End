@@ -21,6 +21,7 @@ import { ExpAdminComponent } from './components/exp-admin/exp-admin.component';
 import { EditExpComponent } from './components/edit-exp/edit-exp.component';
 import { EduAdminComponent } from './components/edu-admin/edu-admin.component';
 import { EditEduComponent } from './components/edit-edu/edit-edu.component';
+import { EditAboutComponent } from './components/edit-about/edit-about.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EditEduComponent } from './components/edit-edu/edit-edu.component';
     ExpAdminComponent,
     EditExpComponent,
     EduAdminComponent,
-    EditEduComponent
+    EditEduComponent,
+    EditAboutComponent
   ],
   imports: [
     BrowserModule,

@@ -9,17 +9,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AboutComponent implements OnInit{
   
-  lista:any=[];
+  about:any={};
+  estaLogueado:any = '';
   constructor (private AboutService: AboutService) {}
 
   ngOnInit () {
+    this.estaLogueado = sessionStorage.getItem('token');
     this.About();
   }
 
   About() {
-    this.AboutService.getAbout().subscribe(
-      resp=>{this.lista=resp;},
-      error=>{console.log(error);}
-    );
+    this.AboutService.getUnAbout(1).subscribe((data) =>{
+      this.about=data;
+    });
   }
 }

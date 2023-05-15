@@ -14,7 +14,7 @@ export class AboutService {
     return this.http.get(this.url);
   }
 
-  getUnAbout(id: string):Observable<any>{
+  getUnAbout(id: number):Observable<any>{
     return this.http.get(this.url+'/'+id);
   }
 
@@ -22,11 +22,11 @@ export class AboutService {
     return this.http.post(this.url+'/crear', About, {responseType:'text'});
   }
 
-  editAbout(id: string, About: sobre):Observable<any>{
+  editAbout(id: number, About: sobre):Observable<any>{
     return this.http.put(this.url+'/editar/'+id, About, {responseType:'text'});
   }
 
-  deleteAbout(id: string):Observable<any>{
+  deleteAbout(id: number):Observable<any>{
     return this.http.delete(this.url+'/borrar/'+id, {responseType:'text'});
   }
 }

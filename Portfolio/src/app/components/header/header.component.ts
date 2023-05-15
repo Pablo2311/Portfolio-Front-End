@@ -26,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   onClick() {
     this.loginservice.logout();
-    this.router.navigate(['/sobre-mi']);
     this.estaLogueado = sessionStorage.getItem('token');
   }
 }
