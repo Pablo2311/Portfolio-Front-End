@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
 
-  url = 'http://localhost:8080';
+  url = 'https://portfolio-cxxs.onrender.com';
 
   constructor(private http: HttpClient,
               private router: Router) {}

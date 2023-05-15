@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ExperienceService {
 
-  url='http://localhost:8080/experiencia'
+  url='https://portfolio-cxxs.onrender.com/experiencia'
   constructor(private http:HttpClient) { }
 
   getExperiencia():Observable<any>{

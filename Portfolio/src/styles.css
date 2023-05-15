@@ -198,7 +198,7 @@ section {
 /* Sobre mi */
 
 .sobre-mi {
-  height: 500px;
+  min-height: 500px;
   padding: 0px, 10px;
   position: relative;
 }
